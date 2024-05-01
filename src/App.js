@@ -1,38 +1,26 @@
-import { Route, Routes } from 'react-router-dom'; // Import Routes and Route
-import './App.css';
-import AccountCreationSuccessful from './components/accountCreationSuccessful';
-import AccountCreationTerminated from './components/accountCreationTerminated';
-import Header from './components/header';
-import Header2 from './components/header2';
-import HelpCenter from './components/helpcenter';
-import Homepage from './components/homepage';
-import LabAccount from './components/labAccountForm';
-import LoggingOut from './components/loggingOut';
-import Login from './components/login';
-import PersonalAccount from './components/personalAccountForm';
-import ViewProfileDetails from './components/viewProfileDetails';
-import Welcome from './components/welcome';
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SelectAccountType from "./components/SelectAccountType/SelectAccountType";
+import LayoutPage from "./pages/LayoutPage/LayoutPage";
+import LabFormComponent from "./components/LabFormComponent/LabFormComponent";
+import PersonalFormComponent from "./components/FormComponent/PersonalFormComponent";
+import ViewProfileDetails from "./components/ViewProfileDetails/viewProfileDetails";
+import HelpCenter from "./components/HelpCenter/helpcenter";
+import Logout from "./components/LogOut/LogOut";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Welcome />
-      <Routes>
-        <Route path="/" element={<Login />} /> {/* Set Login as the root component */}
-        <Route path="/welcome" element={<Welcome />} /> {/* Optional: move Welcome to another route */}
-        {/* Add more routes as needed */}
-      </Routes>
-      <Header2/>
-      <Homepage/>
-      <PersonalAccount/>
-      <LabAccount/>
-      <AccountCreationSuccessful/>
-      <AccountCreationTerminated/>
-      <LoggingOut/>
-      <HelpCenter/>
-      <ViewProfileDetails/>
-    </div>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/user" element={<LayoutPage />}>
+        <Route path="" element={<SelectAccountType />} />
+        <Route path="createaccount" element={<PersonalFormComponent />} />
+        <Route path="createlabaccoount" element={<LabFormComponent />} />
+        <Route path="profile" element={<ViewProfileDetails />} />
+        <Route path="helpcenter" element={<HelpCenter />} />
+        <Route path="logout" element={<Logout />} />
+      </Route>
+    </Routes>
   );
 }
 

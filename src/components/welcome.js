@@ -7,7 +7,7 @@ export default function Welcome() {
       textAlign: 'center',
       m: '2rem' // This margin can be adjusted as needed
     }}>
-      <Typography variant="h5" component="h3" color="#1e3a8a" mt={2}>
+      <Typography variant="h2" component="h3" color="#1e3a8a" mt={2}>
         Welcome!
       </Typography>
       <Typography variant="subtitle1" color="#1e3a8a" mb={2}>
