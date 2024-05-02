@@ -1,79 +1,80 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Welcome from '../welcome';
 
-
 export default function LoginComponent() {
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState(null);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form submitted");
 
-   
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    // Simulating login validation
-    if (email === 'user@example.com' && password === 'password123') {
-      console.log("Login successful");
-      navigate('/');  // Redirect to homepage on successful login
-    } else {
-      console.log("Login failed");
-      // Optionally handle login failure (e.g., display an error message)
+    try {
+      const response = await axios.post('http://localhost:33000/api/auth/login', formData);
+      console.log(response.data);
+      navigate('/user');
+    } catch (error) {
+      console.log(error);
+      setError("Invalid email or password. Please try again.");
+      navigate('/user');
     }
   };
 
   return (
-    <Box sx={{width:"50%", height:"100vh",display:"flex", flexDirection:"column", justifyContent:"center" , alignItems:"center" }}>
-      <Welcome/>
-
-    <Box
+    <Box sx={{ width: "100%", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+      <Welcome />
+      <Box
         sx={{
           backgroundColor: 'white',
           p: 4,
           borderRadius: 1,
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
-          minWidth: '50%',
-          textAlign: 'center',
-          width:"100%", display:"flex", flexDirection:"column"
+          width: "80%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-       
-   
-   <TextField
-          required
-          id="email"
-          label="Email"
-          type="email"
-          autoComplete="current-email"
-          sx={{paddingBottom:"5%"}}
-        />
-   
-   
-        <TextField
-          required
-          id="password"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        />
-
-
-        <Button type="submit" variant="contained" sx={{ mt: 2, mb: 1, backgroundColor: '#1e40af' }}>
-          Log In
-        </Button>
-
-        <Typography variant="body2" color="blue" align="right">
-         
-            Forgot password?
-          
-        </Typography>
-      
-    </Box>
-     
-  
+        <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+          <TextField
+            required
+            id="email"
+            name="email"
+            label="Email"
+            type="email"
+            autoComplete="current-email"
+            value={formData.email}
+            onChange={handleInputChange}
+            sx={{ width: "100%", mb: 2 }}
+          />
+          <TextField
+            required
+            id="password"
+            name="password"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            value={formData.password}
+            onChange={handleInputChange}
+            sx={{ width: "100%", mb: 2 }}
+          />
+          <Button type="submit" variant="contained" sx={{ width: "100%", mt: 2, mb: 1, backgroundColor: '#1e40af' }}>
+            Log In
+          </Button>
+          <Typography variant="body2" color="blue" sx={{ width: "100%", textAlign: "right", mb: 1 }}>
+            <Link to="/forgot-password">Forgot password?</Link>
+          </Typography>
+          {error && <Typography variant="body2" color="error" sx={{ width: "100%", textAlign: "center" }}>{error}</Typography>}
+        </form>
+      </Box>
     </Box>
   );
 }

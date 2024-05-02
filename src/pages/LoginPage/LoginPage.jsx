@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import LogoSider from '../../components/LogoSider/LogoSider';
 
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import LoginComponent from '../../components/LoginComponent/LoginComponent';
 
 const LoginPage = () => {
@@ -13,11 +13,11 @@ const LoginPage = () => {
     
     }} >
        
-            <Box sx={{width:"50%"}}>
+            <Box >
        <LogoSider/>
             </Box>
        
-            <Box sx={{width:"50%"}}>
+            <Box sx={{display:'flex',flexDirection:'column',alignItems:'center', justifyContent:'center'}}>
           <LoginComponent/>
             </Box>
     </Box>

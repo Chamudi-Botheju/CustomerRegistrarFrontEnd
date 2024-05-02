@@ -5,14 +5,6 @@ import React from 'react';
 export default function AccountCreationTerminated() {
   return (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        backgroundColor: '#4f6bed',
-      }}
     >
       <Paper
         elevation={3}
@@ -36,7 +28,7 @@ export default function AccountCreationTerminated() {
         >
           We were unable to create your account due to a processing error. Please try again or contact support if the problem persists.
         </Typography>
-        <Button variant="contained" sx={{ marginTop: 4, backgroundColor: '#4f6bed' }} href="/signup">
+        <Button variant="contained" sx={{ marginTop: 4, backgroundColor: '#4f6bed' }} href="/user">
           Back to Form
         </Button>
       </Paper>

@@ -5,14 +5,6 @@ import React from 'react';
 export default function AccountCreationSuccessful() {
   return (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        backgroundColor: '#4f6bed',
-      }}
     >
       <Paper
         elevation={3}
@@ -36,7 +28,7 @@ export default function AccountCreationSuccessful() {
         >
           Your account has been successfully created. You can now access all the features available to our users.
         </Typography>
-        <Button variant="contained" sx={{ marginTop: 4, backgroundColor: '#4f6bed' }} href="/">
+        <Button variant="contained" sx={{ marginTop: 4, backgroundColor: '#4f6bed' }} href="/user">
           Home
         </Button>
       </Paper>

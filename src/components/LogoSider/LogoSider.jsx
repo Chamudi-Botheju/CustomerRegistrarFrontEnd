@@ -7,7 +7,7 @@ function LogoSider() {
     <Box
       sx={{
         textAlign: 'left',
-        backgroundColor: 'blue', 
+        backgroundColor: '#1e40af', 
         padding: 4,
         borderRadius: '0 20px 20px 0',
         boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
@@ -27,7 +27,7 @@ function LogoSider() {
           maxWidth: '100%', 
         }}
       />
-      <Typography  color="white" sx={{letterSpacing:'8px', fontWeight:'600', fontSize:'4rem'}}> 
+      <Typography  color="white" sx={{letterSpacing:'4px', fontWeight:'600', fontSize:'4rem'}}> 
         HealthHive
       </Typography>
       <Typography variant="h4" color="white">
