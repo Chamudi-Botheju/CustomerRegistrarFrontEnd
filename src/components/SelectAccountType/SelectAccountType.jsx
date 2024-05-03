@@ -25,7 +25,7 @@ function SelectAccountType() {
         Please choose your account type
       </Typography>
 
-      <Box sx={{ width: '50%' , background:'blue', height:'50vh',justifyContent:'center', alignItems:'center', display:'flex', borderRadius:'20px'}}>
+      <Box sx={{ width: '50%' , background:'#757AEF', height:'50vh',justifyContent:'center', alignItems:'center', display:'flex', borderRadius:'20px'}}>
         <Grid container spacing={4} justifyContent="center">
           <Grid item>
             <Link to='createaccount' style={{textDecoration:'none'}}>
@@ -34,7 +34,7 @@ function SelectAccountType() {
                 
                 aria-label="Select Personal Account" sx={{height:'30vh', width:'30vh'}}
               >
-                <Box sx={{ textAlign: 'center', p: 2 , color:'blue'}}>
+                <Box sx={{ textAlign: 'center', p: 2 , color:'#757AEF'}}>
                   <PersonIcon fontSize="large" />
                   <Typography variant="h6">Personal</Typography>
                 </Box>
@@ -49,7 +49,7 @@ function SelectAccountType() {
                 
                 aria-label="Select Laboratory Account" sx={{height:'30vh', width:'30vh'}}
               >
-                <Box sx={{ textAlign: 'center', p: 2 ,color:'blue'}}>
+                <Box sx={{ textAlign: 'center', p: 2 ,color:'#757AEF'}}>
                   <LabIcon fontSize="large" />
                   <Typography variant="h6">Laboratory</Typography>
                 </Box>

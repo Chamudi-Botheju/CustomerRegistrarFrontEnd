@@ -118,15 +118,16 @@ function PersonalFormComponent() {
   };
 
   return (
-    <Container maxWidth="md" sx={{ paddingTop: 4 }}>
-      <Typography
-        variant="h4"
-        component="h1"
-        gutterBottom
-        sx={{ textAlign: "center", color: "white" }}
-      >
-        Create Account
-      </Typography>
+    <Box
+  sx={{
+    width: "100%",
+    height: "100vh",
+    backgroundColor: "#757AEF",
+    paddingTop: "3%",
+  }}
+>
+  <Container maxWidth="md" sx={{ paddingTop: 4 }}>
+  
       <Box
         component="form"
         sx={{
@@ -142,6 +143,16 @@ function PersonalFormComponent() {
         autoComplete="off"
         onSubmit={handleSubmit}
       >
+
+<Typography
+      variant="h4"
+      component="h1"
+      gutterBottom
+      sx={{ textAlign: "center", color: "black" }}
+    >
+      Create Personal Account
+    </Typography>
+    <br/>
         <Grid container spacing={2}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
@@ -334,6 +345,7 @@ function PersonalFormComponent() {
         </Box>
       </Modal>
     </Container>
+  </Box>
   );
 }
 
